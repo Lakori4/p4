@@ -19,3 +19,13 @@ export const GET_MAIN_PAGE_CHARS = gql`
         }
     }
 `;
+
+export const SEARCH_CHARS = gql`
+    query searchChar($filter: FilterCharacter) {
+        characters(filter: $filter) {
+            results {
+            id
+            }
+        }
+    }
+`;
