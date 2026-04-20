@@ -14,12 +14,12 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "\n    query getMainPageChars($filter: FilterCharacter, $page: Int) {\n        characters(filter: $filter, page: $page) {\n            results {\n                id\n                name\n                image\n            }\n            info {\n                count\n                pages\n                next\n                prev\n            }\n        }\n    }\n": typeof types.GetMainPageCharsDocument,
-    "\n    query searchChar($filter: FilterCharacter) {\n        characters(filter: $filter) {\n            results {\n            id\n            }\n        }\n    }\n": typeof types.SearchCharDocument,
+    "\n    query GetMainPageChars($page: Int) {\n        characters(page: $page) {\n            results {\n                id\n            }\n            info {\n                pages\n                prev\n                next\n            }\n        }\n    }\n": typeof types.GetMainPageCharsDocument,
+    "\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n": typeof types.GetCharByIdDocument,
 };
 const documents: Documents = {
-    "\n    query getMainPageChars($filter: FilterCharacter, $page: Int) {\n        characters(filter: $filter, page: $page) {\n            results {\n                id\n                name\n                image\n            }\n            info {\n                count\n                pages\n                next\n                prev\n            }\n        }\n    }\n": types.GetMainPageCharsDocument,
-    "\n    query searchChar($filter: FilterCharacter) {\n        characters(filter: $filter) {\n            results {\n            id\n            }\n        }\n    }\n": types.SearchCharDocument,
+    "\n    query GetMainPageChars($page: Int) {\n        characters(page: $page) {\n            results {\n                id\n            }\n            info {\n                pages\n                prev\n                next\n            }\n        }\n    }\n": types.GetMainPageCharsDocument,
+    "\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n": types.GetCharByIdDocument,
 };
 
 /**
@@ -39,11 +39,11 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query getMainPageChars($filter: FilterCharacter, $page: Int) {\n        characters(filter: $filter, page: $page) {\n            results {\n                id\n                name\n                image\n            }\n            info {\n                count\n                pages\n                next\n                prev\n            }\n        }\n    }\n"): (typeof documents)["\n    query getMainPageChars($filter: FilterCharacter, $page: Int) {\n        characters(filter: $filter, page: $page) {\n            results {\n                id\n                name\n                image\n            }\n            info {\n                count\n                pages\n                next\n                prev\n            }\n        }\n    }\n"];
+export function graphql(source: "\n    query GetMainPageChars($page: Int) {\n        characters(page: $page) {\n            results {\n                id\n            }\n            info {\n                pages\n                prev\n                next\n            }\n        }\n    }\n"): (typeof documents)["\n    query GetMainPageChars($page: Int) {\n        characters(page: $page) {\n            results {\n                id\n            }\n            info {\n                pages\n                prev\n                next\n            }\n        }\n    }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query searchChar($filter: FilterCharacter) {\n        characters(filter: $filter) {\n            results {\n            id\n            }\n        }\n    }\n"): (typeof documents)["\n    query searchChar($filter: FilterCharacter) {\n        characters(filter: $filter) {\n            results {\n            id\n            }\n        }\n    }\n"];
+export function graphql(source: "\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n"): (typeof documents)["\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

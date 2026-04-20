@@ -3,24 +3,31 @@ import { gql } from "@apollo/client";
 
 
 export const GET_MAIN_PAGE_CHARS = gql`
-    query getMainPageChars($filter: FilterCharacter, $page: Int) {
-        characters(filter: $filter, page: $page) {
+    query GetMainPageChars($page: Int) {
+        characters(page: $page) {
             results {
                 id
-                name
-                image
             }
             info {
-                count
                 pages
-                next
                 prev
+                next
             }
         }
     }
 `;
 
-export const SEARCH_CHARS = gql`
+export const GET_CHAR_BY_ID = gql`
+    query GetCharById($characterId: ID!) {
+    character(id: $characterId) {
+        name
+        status
+        image
+    }
+    }
+`
+
+/* export const SEARCH_CHARS = gql`
     query searchChar($filter: FilterCharacter) {
         characters(filter: $filter) {
             results {
@@ -28,4 +35,4 @@ export const SEARCH_CHARS = gql`
             }
         }
     }
-`;
+`; */
