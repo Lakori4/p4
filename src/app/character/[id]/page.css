@@ -1,0 +1,13 @@
+.charDetail {
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: auto;
+}
+
+.details {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}

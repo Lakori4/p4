@@ -1,0 +1,28 @@
+.charGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pager {
+  display: flex;
+  flex-direction: row;
+  padding: 5%;
+  gap: 5px;
+  align-self: center;
+}
+
+.charCard {
+
+  img {
+    max-height: 300px;
+  }
+
+  cursor: pointer;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 2%;
+}
