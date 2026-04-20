@@ -15,11 +15,11 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 type Documents = {
     "\n    query GetMainPageChars($page: Int) {\n        characters(page: $page) {\n            results {\n                id\n            }\n            info {\n                pages\n                prev\n                next\n            }\n        }\n    }\n": typeof types.GetMainPageCharsDocument,
-    "\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n": typeof types.GetCharByIdDocument,
+    "\n    query GetCharById($characterId: ID!) {\n        character(id: $characterId) {\n            name\n            origin {\n                name\n            }\n            species\n            status\n            image\n        }\n    }\n": typeof types.GetCharByIdDocument,
 };
 const documents: Documents = {
     "\n    query GetMainPageChars($page: Int) {\n        characters(page: $page) {\n            results {\n                id\n            }\n            info {\n                pages\n                prev\n                next\n            }\n        }\n    }\n": types.GetMainPageCharsDocument,
-    "\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n": types.GetCharByIdDocument,
+    "\n    query GetCharById($characterId: ID!) {\n        character(id: $characterId) {\n            name\n            origin {\n                name\n            }\n            species\n            status\n            image\n        }\n    }\n": types.GetCharByIdDocument,
 };
 
 /**
@@ -43,7 +43,7 @@ export function graphql(source: "\n    query GetMainPageChars($page: Int) {\n   
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n"): (typeof documents)["\n    query GetCharById($characterId: ID!) {\n    character(id: $characterId) {\n        name\n        status\n        image\n    }\n    }\n"];
+export function graphql(source: "\n    query GetCharById($characterId: ID!) {\n        character(id: $characterId) {\n            name\n            origin {\n                name\n            }\n            species\n            status\n            image\n        }\n    }\n"): (typeof documents)["\n    query GetCharById($characterId: ID!) {\n        character(id: $characterId) {\n            name\n            origin {\n                name\n            }\n            species\n            status\n            image\n        }\n    }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
